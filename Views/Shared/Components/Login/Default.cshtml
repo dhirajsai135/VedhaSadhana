@@ -1,0 +1,96 @@
+﻿<div class="login-signup-background">
+    <div class="login-container" id="signinSection">
+        <h2 class="headings" >Login</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <input type="email" id="emailSI" class="form-control" placeholder="Email" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="passwordSI" class="form-control" placeholder="Password" name="password" required>
+            </div>
+            <button type="submit" id="signInButton" class="btn btn-primary">Signin</button>
+        </form>
+        <p class="switch-form headings">Don't have an account? <a href="#" id="createAccountLink">Create Account</a></p>
+    </div>
+
+    <div class="login-container" id="signupSection">
+        <h2 class="headings">Signup</h2>
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <input type="text" id="firstNameSU" class="form-control" placeholder="First Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <input type="text"  id="lastNameSU" class="form-control" placeholder="Last Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="emailSU" class="form-control" placeholder="Email" name="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="passwordSU" class="form-control" placeholder="Password" name="password" required>
+            </div>
+            <button type="submit" id="signupButton" class="btn btn-primary">Signup</button>
+        </form>
+        <p class="switch-form headings">Already have an account? <a href="#" id="signinLink">Signin</a></p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#signupSection").hide();
+        $("#signinSection").show();
+    });
+
+    $("#createAccountLink").click(function () {
+        $("#signupSection").show();
+        $("#signinSection").hide();
+    });
+    
+    $("#signinLink").click(function () {
+        $("#signupSection").hide();
+        $("#signinSection").show();
+    });
+
+    $("#signupButton").click(function () {
+        var request = {
+            firstName: $("#firstNameSU").val(),
+            lastName: $("#lastNameSU").val(),
+            email:$("#emailSU").val(),
+            password:$("#passwordSU").val()
+        }
+        console.log(request);
+        $.ajax({
+            type: 'POST',
+            contentType:"application/json",
+            url: "@Url.Action("Signup", "Login")",
+            data: JSON.stringify(request),
+            dataType: "json",
+            success: function (resultData) 
+            {
+                window.location.href = "@Url.Action("Index","Home")"
+            }
+        });
+    });
+
+    $("#signInButton").click(function () {
+        var request = {
+            email: $("#emailSI").val(),
+            password: $("#passwordSI").val()
+        }
+        $.ajax({
+            type: 'POST',
+            contentType: "application/json",
+            url: "@Url.Action("Login", "Login")",
+            beforeSend: function () {
+                $("#spinner").show();
+            },
+            data: JSON.stringify(request),
+            dataType: "json",
+            success: function (resultData) {
+                window.location.href = "@Url.Action("Index", "Home")"
+                $("#spinner").hide();
+            }
+        });
+    });
+
+    
+</script>

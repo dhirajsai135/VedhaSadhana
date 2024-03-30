@@ -5,3 +5,7 @@ global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
 global using Microsoft.Data.SqlClient;
 global using VedhaSadhana.Domain;
+global using VedhaSadhana.Abstraction;
+global using VedhaSadhana.ViewModels;
+global using VedhaSadhana;
+global using VedhaSadhana.Service;

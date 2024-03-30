@@ -1,10 +1,9 @@
-using VedhaSadhana;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<VedhaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("VedhaCS")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.TryAddScoped<ILoginService, LoginService>();
 
 var app = builder.Build();
 
@@ -21,6 +20,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}");
 
 app.Run();

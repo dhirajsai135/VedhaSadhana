@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstraction\" />
     <Folder Include="Data\" />
     <Folder Include="Migrations\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Service\" />
+	<Folder Include="Components\" />
   </ItemGroup>
 
   <ItemGroup>
