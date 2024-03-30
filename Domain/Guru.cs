@@ -11,7 +11,7 @@ public class Guru : Audit
     public string Email { get; set; }
 
     [Required]
-    public required string Password { get; set; }
+    public string Password { get; set; }
 
     public ICollection<Sishyulu> Sishyulu { get; set; }
 }

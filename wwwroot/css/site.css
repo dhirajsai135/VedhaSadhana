@@ -1,22 +1,65 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    border-radius: 20px;
+    border-color: black;
+    border-width: 2px;
+}
+
+.login-signup-background {
+    margin-top:100px;
+    background-image: url("/Images/LoginSignupBG.png");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:20px;
+}
+
+.login-container {
+    padding: 15px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+}
+
+.headings {
+    color: floralwhite;
+    font-weight: bold;
+}
+
+#spinner {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    z-index: 9999;
+    text-align: center;
+    padding-top: 20%;
 }

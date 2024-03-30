@@ -2,8 +2,8 @@
 
 public class Audit
 {
-    public string Created { get; set; }
-    public DateTime? CreatedBy { get; set; }
-    public string Modified { get; set; }
-    public DateTime? ModifiedBy { get; set; }
+    public string? CreatedBy { get; set; }
+    public DateTime? Created { get; set; }
+    public string? ModifiedBy { get; set; }
+    public DateTime? Modified { get; set; }
 }
