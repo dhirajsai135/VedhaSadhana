@@ -1,5 +1,8 @@
+using VedhaSadhana;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<VedhaDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("VedhaCS")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
